@@ -1,4 +1,4 @@
 function CommandListAll() {
-  return <></>;
+  return <>all commands</>;
 }
 export default CommandListAll;

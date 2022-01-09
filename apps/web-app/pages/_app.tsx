@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
+import { Header } from '@football-app/app/ui';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -8,7 +9,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to football-api web-app!</title>
       </Head>
-      <main className="app">
+      <Header />
+      <main className="app h-full flex flex-col">
         <Component {...pageProps} />
       </main>
     </>
