@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "app-api-client": "libs/app/api-client",
     "app-ui": "libs/app/ui",
     "types": "libs/types",
     "web-app": "apps/web-app",

@@ -31,8 +31,8 @@ export function Header() {
       </div>
       <nav className="hidden lg:flex items-center justify-end flex-wrap bg-teal col-end-9 col-span-3">
         <ul className="w-full hidden justify-end lg:flex lg:items-center lg:w-auto">
-          {linksList.map((value) => (
-            <li className="text-sm lg:flex-grow">
+          {linksList.map((value, index) => (
+            <li key={index} className="text-sm lg:flex-grow">
               <Link href={value.url} passHref>
                 <a className="transition block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-stone-500 mr-4">
                   {value.title}

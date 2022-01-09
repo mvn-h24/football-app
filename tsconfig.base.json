@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@football-app/app/api-client": ["libs/app/api-client/src/index.ts"],
       "@football-app/app/ui": ["libs/app/ui/src/index.ts"],
       "@football-app/types": ["libs/types/src/index.ts"]
     }
