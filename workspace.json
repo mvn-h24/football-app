@@ -4,7 +4,6 @@
     "app-api-client": "libs/app/api-client",
     "app-ui": "libs/app/ui",
     "types": "libs/types",
-    "web-app": "apps/web-app",
-    "web-app-e2e": "apps/web-app-e2e"
+    "web-app": "apps/web-app"
   }
 }
