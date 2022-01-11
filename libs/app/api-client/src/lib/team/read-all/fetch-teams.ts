@@ -1,7 +1,5 @@
-import { TeamComposition } from '@football-app/types';
 import { ApiFetcher, ApiResources } from '../../utils';
+import { TeamsList } from '@football-app/types';
 
 export const fetchTeams = () =>
-  ApiFetcher<Array<TeamComposition>>(ApiResources.teams).then(
-    (res) => res.data
-  );
+  ApiFetcher<TeamsList>(ApiResources.teams).then((res) => res.data);

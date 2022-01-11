@@ -1,3 +1,3 @@
 export const AppResources = {
-  command: '/api/command',
+  teams: '/api/team',
 };

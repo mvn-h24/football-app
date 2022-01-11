@@ -1,5 +1,8 @@
-export * from './lib/competition';
-export * from './lib/match';
-export * from './lib/team';
+export * from './lib/api/competition';
+export * from './lib/api/match';
+export * from './lib/api/team';
+export * from './lib/api/area';
 
-export * from './lib/resource-lable';
+export * from './lib/app';
+
+export * from './lib/api/resource-label';

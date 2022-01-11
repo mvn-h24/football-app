@@ -1,16 +1,12 @@
 import Link from 'next/link';
 
-const linksList = [
-  {
-    url: '/command',
-    title: 'Command list',
-  },
-  {
-    url: '/action',
-    title: 'Actions list',
-  },
-];
-export function Header() {
+export interface HeaderProps {
+  linkList: Array<{
+    url: string;
+    title: string;
+  }>;
+}
+export function Header({ linkList }: HeaderProps) {
   return (
     <header className="grid grid-cols-8 grid-rows-1 p-6 ">
       <div className="flex items-center flex-no-shrink col-start-1 col-span-2">
@@ -31,7 +27,7 @@ export function Header() {
       </div>
       <nav className="hidden lg:flex items-center justify-end flex-wrap bg-teal col-end-9 col-span-3">
         <ul className="w-full hidden justify-end lg:flex lg:items-center lg:w-auto">
-          {linksList.map((value, index) => (
+          {linkList.map((value, index) => (
             <li key={index} className="text-sm lg:flex-grow">
               <Link href={value.url} passHref>
                 <a className="transition block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-stone-500 mr-4">
