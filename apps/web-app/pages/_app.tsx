@@ -6,11 +6,11 @@ import { Header } from '@football-app/app/ui';
 const linksList = [
   {
     url: '/teams',
-    title: 'Command list',
+    title: 'Teams list',
   },
   {
     url: '/competitions',
-    title: 'Actions list',
+    title: 'Competitions list',
   },
 ];
 function CustomApp({ Component, pageProps }: AppProps) {

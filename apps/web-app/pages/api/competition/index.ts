@@ -1,12 +1,12 @@
-import { fetchTeams } from '@football-app/app/api-client';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AppError, TeamsList } from '@football-app/types';
+import { AppError, CompetitionsList } from '@football-app/types';
+import { fetchCompetitions } from '@football-app/app/api-client';
 
 const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<TeamsList | AppError>
+  res: NextApiResponse<CompetitionsList | AppError>
 ) =>
-  fetchTeams().then(async (response) => {
+  fetchCompetitions().then(async (response) => {
     res.json(response);
     return res;
   });

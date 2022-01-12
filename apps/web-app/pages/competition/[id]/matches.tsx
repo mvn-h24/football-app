@@ -1,4 +1,4 @@
-function ActionCalendar() {
+function CompetitionReadMatches() {
   return <>Action calendar</>;
 }
-export default ActionCalendar;
+export default CompetitionReadMatches;

@@ -13,7 +13,7 @@ function TeamsList() {
           <li key={id}>
             <Link
               href={{
-                pathname: `/team/[id]`,
+                pathname: '/team/[id]',
                 query: { id },
               }}
               passHref
