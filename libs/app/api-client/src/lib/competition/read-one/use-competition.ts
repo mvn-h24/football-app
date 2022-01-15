@@ -5,9 +5,10 @@ import { AppFetcher, AppResources } from '../../utils';
 
 export function useCompetition(): Competition | undefined | false {
   const router = useRouter();
-  const { id } = router.query;
   const competitionResponse = useSWR<Competition | AppError>(
-    `${AppResources.competition}/${id}`,
+    router.query['id'] === undefined
+      ? undefined
+      : `${AppResources.competition}/${router.query['id']}`,
     AppFetcher
   );
   if (

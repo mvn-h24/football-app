@@ -6,7 +6,7 @@ const handler = (
   req: NextApiRequest,
   res: NextApiResponse<TeamsList | AppError>
 ) =>
-  fetchTeams().then(async (response) => {
+  fetchTeams().then((response) => {
     res.json(response);
     return res;
   });

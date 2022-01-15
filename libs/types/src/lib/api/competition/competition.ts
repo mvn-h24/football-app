@@ -1,15 +1,15 @@
 import { Season, SeasonMeta } from './index';
 import { CompetitionResourceLabel } from './competition-resource-label';
 
-export interface Competition extends CompetitionResourceLabel {
+export interface Competition extends CompetitionListItem {
+  seasons: Array<SeasonMeta>;
+}
+
+export interface CompetitionListItem extends CompetitionResourceLabel {
+  numberOfAvailableSeasons: number | null;
   code: string | null;
   emblemUrl: string | null;
   plan: string;
   currentSeason: Season;
-  seasons: Array<SeasonMeta>;
   lastUpdated: Date;
-}
-
-export interface CompetitionListItem extends Omit<Competition, 'seasons'> {
-  numberOfAvailableSeasons: number | null;
 }
