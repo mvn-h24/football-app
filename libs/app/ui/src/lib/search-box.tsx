@@ -68,6 +68,7 @@ export function SearchBox({
       type="search"
       onKeyDown={handleKeyPress}
       onChange={handleChange}
+      placeholder="search by name..."
       value={searchQueryState}
     />
   );
