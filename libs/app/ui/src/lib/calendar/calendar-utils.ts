@@ -20,7 +20,7 @@ export interface CalendarMeta {
 }
 
 export const getWeeksCount = (startFrom: Date = new Date(), count: number) => {
-  let daysCount = 1;
+  let daysCount = 0;
   return [
     ...[...Array(count).keys()].map(() => [
       ...[...Array(7).keys()].map(() => {
@@ -30,19 +30,35 @@ export const getWeeksCount = (startFrom: Date = new Date(), count: number) => {
   ];
 };
 export const weekBetweenMonth = (date: Date) => [
-  ...[...Array(date.getDay() - 1).keys()]
+  ...[...Array(date.getDay() !== 0 ? date.getDay() - 1 : 6).keys()]
     .map((v, i) => subDays(date, i + 1))
     .sort(() => -1),
-  ...[...Array(8 - date.getDay()).keys()].map((v, i) => addDays(date, i)),
+  ...[...Array(date.getDay() === 0 ? 1 : 8 - date.getDay()).keys()].map(
+    (v, i) => addDays(date, i)
+  ),
 ];
 
 export const getCalendarWeeksList = (meta: CalendarMeta) => {
-  const FirstWeek = weekBetweenMonth(meta.monthStart);
+  let weeksBetweenMonths = 0;
+  let weeksFirstDay = meta.monthStart;
+  let FirstWeek = undefined;
+  let LastWeek = undefined;
+  if (meta.monthStart.getDay() !== 1) {
+    FirstWeek = weekBetweenMonth(meta.monthStart);
+    weeksFirstDay = FirstWeek[FirstWeek.length - 1];
+    weeksBetweenMonths++;
+  }
+  if (meta.monthEnd.getDay() !== 0) {
+    LastWeek = weekBetweenMonth(meta.monthEnd);
+    weeksBetweenMonths++;
+  }
+
   const weeks = getWeeksCount(
-    FirstWeek[FirstWeek.length - 1],
-    getWeeksInMonth(meta.current) - 2
+    weeksFirstDay,
+    getWeeksInMonth(meta.current) - weeksBetweenMonths
   );
-  weeks.unshift(FirstWeek);
-  weeks.push(weekBetweenMonth(meta.monthEnd));
+  if (FirstWeek) weeks.unshift(FirstWeek);
+  if (LastWeek) weeks.push(LastWeek);
+
   return weeks;
 };

@@ -15,7 +15,7 @@ function ReadTeam() {
         <>
           <h1>{team.name}</h1>
           <Link href={`/team/${team.id}/matches`} passHref>
-            <a>matches</a>
+            <a>team matches</a>
           </Link>
         </>
       )}

@@ -11,9 +11,7 @@ export function CalendarDay({ children, day }: CalendarDayProps) {
       <div className="top h-5 w-full">
         <span className="text-gray-500">{day}</span>
       </div>
-      <div className="bottom flex-grow h-30 py-1 w-full cursor-pointer">
-        {children}
-      </div>
+      <div className="bottom flex-grow h-30 py-1 w-full">{children}</div>
     </div>
   );
 }

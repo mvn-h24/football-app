@@ -1,6 +1,6 @@
 interface CalendarBadgeProps {
   name: string;
-  info: string;
+  info?: string;
 }
 export function CalendarBadge({ name, info }: CalendarBadgeProps) {
   return (
