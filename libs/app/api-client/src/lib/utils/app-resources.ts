@@ -4,5 +4,8 @@ export const AppResources = {
     matches: (id: string | number) => `/api/team/${id}/matches`,
     details: (id: string | number) => `/api/team/${id}`,
   },
-  competition: '/api/competition',
+  competitions: '/api/competition',
+  competition: {
+    matches: (id: string | number) => `/api/competition/${id}/matches`,
+  },
 };

@@ -5,4 +5,7 @@ export const ApiResources = {
     details: (id: string | number) => `/teams/${id}`,
   },
   competitions: '/competitions',
+  competition: {
+    matches: (id: string | number) => `/competitions/${id}/matches`,
+  },
 };

@@ -1,16 +1,25 @@
 import Link from 'next/link';
-import { useCompetition } from '@football-app/app/api-client';
-import { ContentLayout, ErrorMessage, Preloader } from '@football-app/app/ui';
+import {
+  useCompetition,
+  useCompetitionMatches,
+} from '@football-app/app/api-client';
+import {
+  ContentLayout,
+  ErrorMessage,
+  MatchesCalendar,
+  Preloader,
+} from '@football-app/app/ui';
 
 function CompetitionReadMatches() {
   const competition = useCompetition();
-  if (competition === false) {
+  const matchesInfo = useCompetitionMatches();
+  if (competition === false || matchesInfo === false) {
     return <ErrorMessage className="m-5" message={'server wrong response'} />;
   }
   return (
     <>
       <ContentLayout className="self-center my-5">
-        {competition === undefined ? (
+        {competition === undefined || matchesInfo === undefined ? (
           <Preloader />
         ) : (
           <>
@@ -18,6 +27,11 @@ function CompetitionReadMatches() {
             <Link href={`/competition/${competition.id}`} passHref>
               <a>competition info</a>
             </Link>
+            {matchesInfo.count ? (
+              <MatchesCalendar matchesList={matchesInfo.matches} />
+            ) : (
+              <div>Competition without matches!</div>
+            )}
           </>
         )}
       </ContentLayout>

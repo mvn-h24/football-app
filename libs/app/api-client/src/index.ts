@@ -2,6 +2,8 @@ export * from './lib/competition/read-all/fetch-competitions';
 export * from './lib/competition/read-all/use-competitions';
 export * from './lib/competition/read-one/fetch-competition';
 export * from './lib/competition/read-one/use-competition';
+export * from './lib/competition/matches/fetch-competition-matches';
+export * from './lib/competition/matches/use-team-matches';
 
 export * from './lib/team/matches/fetch-team-matches';
 export * from './lib/team/matches/use-team-matches';

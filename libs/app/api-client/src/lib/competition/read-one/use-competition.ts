@@ -8,7 +8,7 @@ export function useCompetition(): Competition | undefined | false {
   const competitionResponse = useSWR<Competition | AppError>(
     router.query['id'] === undefined
       ? undefined
-      : `${AppResources.competition}/${router.query['id']}`,
+      : `${AppResources.competitions}/${router.query['id']}`,
     AppFetcher
   );
   if (
