@@ -1,6 +1,6 @@
 import { CompetitionListItem } from './index';
-import { ResourceMetaList } from '../resource-meta-list';
+import { RmlWithFilters } from '../resource-meta-list';
 
-export interface CompetitionsList extends ResourceMetaList {
+export interface CompetitionsList extends RmlWithFilters {
   competitions: Array<CompetitionListItem>;
 }

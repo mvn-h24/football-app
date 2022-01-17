@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useCompetition } from '@football-app/app/api-client';
 import { ContentLayout, ErrorMessage, Preloader } from '@football-app/app/ui';
 
@@ -13,6 +14,9 @@ function CompetitionRead() {
       ) : (
         <>
           <h1>{competition.name}</h1>
+          <Link href={`/competition/${competition.id}/matches`} passHref>
+            <a>matches</a>
+          </Link>
         </>
       )}
     </ContentLayout>

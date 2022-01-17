@@ -5,10 +5,11 @@ import { AppFetcher, AppResources } from '../../utils';
 
 export function useTeam(): Team | undefined | false {
   const router = useRouter();
+  const id = Array.isArray(router.query['id'])
+    ? router.query['id'].join('/')
+    : router.query['id'];
   const teamResponse = useSWR<Team | AppError>(
-    router.query['id'] === undefined
-      ? undefined
-      : `${AppResources.teams}/${router.query['id']}`,
+    id === undefined ? undefined : AppResources.team.details(id),
     AppFetcher
   );
   if ((teamResponse.data as AppError | undefined)?.status !== undefined) {

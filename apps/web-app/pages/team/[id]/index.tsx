@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useTeam } from '@football-app/app/api-client';
 import { ContentLayout, ErrorMessage, Preloader } from '@football-app/app/ui';
 
@@ -13,6 +14,9 @@ function ReadTeam() {
       ) : (
         <>
           <h1>{team.name}</h1>
+          <Link href={`/team/${team.id}/matches`} passHref>
+            <a>matches</a>
+          </Link>
         </>
       )}
     </ContentLayout>
