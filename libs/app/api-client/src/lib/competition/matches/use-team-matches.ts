@@ -8,7 +8,7 @@ export function useCompetitionMatches() {
   const id = Array.isArray(router.query['id'])
     ? router.query['id'].join('/')
     : router.query['id'];
-  const matchesResponse = useSWR<MatchesList>(
+  const matchesResponse = useSWR<MatchesList | AppError>(
     id === undefined ? undefined : AppResources.competition.matches(id),
     AppFetcher
   );

@@ -21,22 +21,26 @@ export interface CalendarMeta {
 
 export const getWeeksCount = (startFrom: Date = new Date(), count: number) => {
   let daysCount = 0;
-  return [
-    ...[...Array(count).keys()].map(() => [
-      ...[...Array(7).keys()].map(() => {
-        return addDays(startFrom, daysCount++);
-      }),
-    ]),
-  ];
+  return Array.from(
+    Array.from(Array(count).keys()).map(() =>
+      Array.from(
+        Array.from(Array(7).keys()).map(() => {
+          return addDays(startFrom, daysCount++);
+        })
+      )
+    )
+  );
 };
-export const weekBetweenMonth = (date: Date) => [
-  ...[...Array(date.getDay() !== 0 ? date.getDay() - 1 : 6).keys()]
-    .map((v, i) => subDays(date, i + 1))
-    .sort(() => -1),
-  ...[...Array(date.getDay() === 0 ? 1 : 8 - date.getDay()).keys()].map(
-    (v, i) => addDays(date, i)
-  ),
-];
+export const weekBetweenMonth = (date: Date) =>
+  Array.from(
+    Array.from(Array(date.getDay() !== 0 ? date.getDay() - 1 : 6).keys())
+      .map((v, i) => subDays(date, i + 1))
+      .sort(() => -1)
+  ).concat(
+    Array.from(Array(date.getDay() === 0 ? 1 : 8 - date.getDay()).keys()).map(
+      (v, i) => addDays(date, i)
+    )
+  );
 
 export const getCalendarWeeksList = (meta: CalendarMeta) => {
   let weeksBetweenMonths = 0;
